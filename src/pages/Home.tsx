@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pb-20 pt-32 md:items-center md:pb-10">
+      <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden pb-20 pt-20 md:items-center md:pb-10 md:pt-32">
         <motion.div
           animate={reduce ? undefined : { scale: [1, 1.08, 1], opacity: [0.22, 0.32, 0.22] }}
           transition={{ duration: 7, ease: 'easeInOut', repeat: Infinity }}
@@ -46,11 +46,13 @@ export default function Home() {
           aria-hidden
           className="absolute -bottom-40 right-0 -z-10 h-[480px] w-[480px] rounded-full bg-orange/30 blur-[140px]"
         />
+
+        {/* Hero GPU Animation - Spaced safely below navbar and above text across all devices */}
         <motion.div
           initial={reduce ? false : { x: 120, opacity: 0, rotate: -6 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-          className="absolute -right-[18%] -top-20 sm:-top-12 -z-10 w-[120%] max-w-[1100px] opacity-60 md:-right-[6%] md:top-[12%] md:w-[68%] md:opacity-100"
+          className="absolute -right-[15%] top-20 sm:top-24 -z-10 w-[115%] sm:w-[95%] max-w-[520px] opacity-60 pointer-events-none md:-right-[6%] md:top-[12%] md:w-[68%] md:max-w-[1100px] md:opacity-100"
         >
           {/* Subtle floating bobbing animation */}
           <motion.div
@@ -60,7 +62,8 @@ export default function Home() {
             <Art kind="gpu" className="w-full drop-shadow-[0_40px_80px_rgba(0,102,255,.35)]" label="Illustration of a dual-fan graphics card" />
           </motion.div>
         </motion.div>
-        <div className="wrap w-full">
+
+        <div className="wrap w-full pt-[200px] sm:pt-[220px] md:pt-0">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
             <Sparkles size={14} />
             <span>Trusted Computer Store in Derebail Since {SITE.establishedYear}</span>
