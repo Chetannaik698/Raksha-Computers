@@ -76,15 +76,6 @@ export default function Home() {
             <p className="text-lg text-muted">Genuine laptops, custom desktop builds, high-speed SSDs, and accessories at Mercia Square, Derebail. Enquire on WhatsApp for current stock and best pricing.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link to="/products" className="btn btn-red">Explore products <ArrowRight size={18} /></Link>
-              <a
-                href={waLink('Hello Raksha Computers, I would like to check product availability and prices.')}
-                target="_blank"
-                rel="noreferrer"
-                className="btn inline-flex items-center gap-2 !bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-semibold shadow-md shadow-green-900/30"
-              >
-                <MessageCircle size={18} />
-                <span>WhatsApp Enquire</span>
-              </a>
             </div>
             <p className="mt-6 flex items-center gap-2 text-sm text-muted"><MapPin size={16} className="text-orange" /> Mercia Square, Bejai–Kavoor Road, Derebail</p>
           </motion.div>
