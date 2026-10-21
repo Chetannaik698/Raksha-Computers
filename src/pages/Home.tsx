@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pb-16 pt-32 md:items-center md:pb-10">
+      <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden pb-20 pt-32 md:items-center md:pb-10">
         <motion.div
           animate={reduce ? undefined : { scale: [1, 1.08, 1], opacity: [0.22, 0.32, 0.22] }}
           transition={{ duration: 7, ease: 'easeInOut', repeat: Infinity }}
@@ -50,7 +50,7 @@ export default function Home() {
           initial={reduce ? false : { x: 120, opacity: 0, rotate: -6 }}
           animate={{ x: 0, opacity: 1, rotate: 0 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] }}
-          className="absolute -right-[18%] top-[9%] -z-10 w-[120%] max-w-[1100px] opacity-60 md:-right-[6%] md:top-[12%] md:w-[68%] md:opacity-100"
+          className="absolute -right-[18%] -top-20 sm:-top-12 -z-10 w-[120%] max-w-[1100px] opacity-60 md:-right-[6%] md:top-[12%] md:w-[68%] md:opacity-100"
         >
           {/* Subtle floating bobbing animation */}
           <motion.div
