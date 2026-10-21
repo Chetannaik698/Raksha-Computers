@@ -121,7 +121,7 @@ export default function Header() {
 
       <AnimatePresence>
         {open && (
-          <motion.nav aria-label="Mobile" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden border-t border-white/10 bg-navy lg:hidden">
+          <motion.nav aria-label="Mobile" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-y-auto max-h-[calc(100vh-72px)] border-t border-white/10 bg-navy lg:hidden">
             <div className="wrap flex flex-col py-6 space-y-4">
               {links.map(([to, label]) => (
                 <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => cn('text-lg font-medium transition-colors hover:text-yellow', isActive ? 'text-paper font-semibold' : 'text-muted')}>{label}</NavLink>

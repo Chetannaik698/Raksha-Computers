@@ -56,10 +56,10 @@ export default function Catalogue({ mode }: { mode: 'all' | 'category' | 'search
               ))}
             </nav>
             <div className="flex flex-wrap items-center gap-3">
-              <form role="search" onSubmit={(e) => { e.preventDefault(); update({ q: input.trim() || null }) }} className="relative">
+              <form role="search" onSubmit={(e) => { e.preventDefault(); update({ q: input.trim() || null }) }} className="relative flex-1 sm:flex-initial">
                 <label htmlFor="cq" className="sr-only">Search products</label>
                 <Search size={17} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
-                <input id="cq" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search products" className="field !rounded-full !py-2.5 !pl-10 sm:w-64" />
+                <input id="cq" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search products" className="field !rounded-full !py-2.5 !pl-10 w-full sm:w-64" />
               </form>
               <label className="flex items-center gap-2 text-sm text-muted">Sort
                 <select value={sort} onChange={(e) => update({ sort: e.target.value === 'name' ? 'name' : null })} className="field !w-auto !rounded-full !py-2.5">
