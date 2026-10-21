@@ -1,0 +1,101 @@
+import { Clock, MapPin, MessageCircle, Phone, Store } from 'lucide-react'
+import { motion, useReducedMotion } from 'motion/react'
+import PageHead from '../components/PageHead'
+import EnquiryForm from '../components/EnquiryForm'
+import { MAPS_EMBED, MAPS_LINK, SITE } from '../data/site'
+import { waLink } from '../lib/utils'
+import { useSEO } from '../hooks/useSEO'
+
+export default function Contact() {
+  useSEO('Contact Raksha Computers', 'Call, WhatsApp or visit Raksha Computers at Mercia Square, Derebail, Mangaluru.')
+  const reduce = useReducedMotion()
+
+  return (
+    <>
+      <PageHead title="Contact the shop" intro="Call or WhatsApp for the fastest answer. You can also visit our physical store or leave your details below." />
+      <section className="py-14 md:py-20">
+        <div className="wrap grid gap-14 lg:grid-cols-[1fr_1.1fr]">
+          <motion.div
+            initial={reduce ? false : { opacity: 0, x: -25 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="space-y-8"
+          >
+            <div className="flex flex-wrap gap-3">
+              <a href={SITE.phoneHref} className="btn btn-red">
+                <Phone size={18} /> Call {SITE.phone}
+              </a>
+              <a
+                href={waLink('Hello Raksha Computers, I have an enquiry about your products/services.')}
+                target="_blank"
+                rel="noreferrer"
+                className="btn inline-flex items-center gap-2 !bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-semibold shadow-md shadow-green-900/30"
+              >
+                <MessageCircle size={18} /> WhatsApp
+              </a>
+            </div>
+
+            <address className="space-y-4 not-italic">
+              <p className="flex gap-3">
+                <MapPin className="mt-1 shrink-0 text-orange" size={19} />
+                <span>{SITE.addressLine}, {SITE.addressArea}</span>
+              </p>
+              <p className="flex gap-3">
+                <Clock className="mt-1 shrink-0 text-orange" size={19} />
+                <span>{SITE.hours ?? 'Mon – Sat: 10:00 AM – 8:30 PM (Sun: On Call)'}</span>
+              </p>
+            </address>
+
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block text-sm font-semibold text-electric dark:text-cyan hover:text-orange dark:hover:text-yellow transition-colors hover:underline"
+            >
+              Open in Google Maps
+            </a>
+
+            {/* Map & Storefront Photo side-by-side / stacked */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="overflow-hidden rounded-2xl border border-white/10">
+                <iframe
+                  title="Map showing Raksha Computers"
+                  src={MAPS_EMBED}
+                  loading="lazy"
+                  className="h-56 sm:h-full w-full border-0 min-h-[220px]"
+                />
+              </div>
+
+              <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-edge/60">
+                <img
+                  src="/images/shop/raksha-computers-storefront.webp"
+                  alt="Raksha Computers Storefront Signboard"
+                  className="h-56 sm:h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 min-h-[220px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent p-4 flex flex-col justify-end">
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-yellow">
+                    <Store size={14} />
+                    <span>Store Entrance</span>
+                  </div>
+                  <p className="mt-0.5 text-xs text-paper/90">
+                    Mercia Square B-2, Derebail (Opp. Kedar Apts)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={reduce ? false : { opacity: 0, x: 25 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-3xl border border-white/10 bg-deep p-6 md:p-8"
+          >
+            <h2 className="mb-5 font-display text-xl">Send an enquiry</h2>
+            <EnquiryForm type="general" />
+          </motion.div>
+        </div>
+      </section>
+    </>
+  )
+}

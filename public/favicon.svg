@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="rcBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="100%" stop-color="#0052D4"/>
+    </linearGradient>
+    <linearGradient id="rcFlame" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFB800"/>
+      <stop offset="50%" stop-color="#FF6A00"/>
+      <stop offset="100%" stop-color="#FF3D00"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#060D1A"/>
+  <!-- 'R' in vivid 3D gradient blue -->
+  <path d="M14 48V16h15c7 0 11 3.5 11 9.5 0 4.5-2.5 7.5-6.5 8.8L44 48h-7.5l-8.5-12.5H21V48h-7z" fill="url(#rcBlue)"/>
+  <path d="M21 22.5v7h7.5c3 0 5-1.5 5-3.5s-2-3.5-5-3.5H21z" fill="#060D1A"/>
+  <!-- 'C' swoosh in warm orange-yellow flame -->
+  <path d="M43 20c4.5 4 6 10 4 16-2 6-8 10.5-15 11 5-2 8.5-6 9.5-11 1-5-1-9-4-12.5 2-1.5 4-2.5 5.5-3.5z" fill="url(#rcFlame)"/>
+</svg>
