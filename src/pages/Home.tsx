@@ -64,7 +64,7 @@ export default function Home() {
         </motion.div>
 
         <div className="wrap w-full pt-[200px] sm:pt-[220px] md:pt-0">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
+          <div className="mb-4 mt-3.5 sm:mt-4 md:mt-0 inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
             <Sparkles size={14} />
             <span>Trusted Computer Store in Derebail Since {SITE.establishedYear}</span>
           </div>
