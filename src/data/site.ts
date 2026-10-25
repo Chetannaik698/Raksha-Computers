@@ -22,7 +22,7 @@ export const SITE = {
     lng: 74.850579
   },
   paymentsAccepted: ['UPI (GPay, PhonePe, Paytm)', 'Net Banking', 'Cash'],
-  url: 'https://rakshacomputers.in',
+  url: 'https://rakshacomputers.com',
   firmProfile: 'RAKSHA COMPUTERS provide Computer Hardware Sales and Services. Started in 2011, The Firm is handled and managed by experts who have a strong knowledge of hardware concepts.',
   aboutUs: 'We deliver quick and efficient service which ensures at most customer satisfaction. We have experts who attend to customers needs at any point of time.',
   vision: 'To become a company that provides good support and services and strive for our customer’s delight.',

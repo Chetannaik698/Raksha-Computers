@@ -8,7 +8,7 @@ const matchC = content.match(/export const categories:\s*Category\[\]\s*=\s*(\[[
 
 const products = JSON.parse(matchP[1])
 const categories = JSON.parse(matchC[1])
-const domain = 'https://rakshacomputers.in'
+const domain = 'https://rakshacomputers.com'
 
 const urls = [
   '',
