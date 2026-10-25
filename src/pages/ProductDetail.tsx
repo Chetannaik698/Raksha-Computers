@@ -47,7 +47,9 @@ export default function ProductDetail() {
   const galleryImages = p.images && p.images.length > 0 ? p.images : p.image ? [p.image] : []
   const hasRealImages = galleryImages.length > 0
   const activeImage = galleryImages[view] ?? galleryImages[0]
-  const enquiryMessage = `Hello Raksha Computers, I am interested in ${p.name}. Could you please let me know the current price and availability in your Derebail shop?`
+  const enquiryMessage = p.mrp
+    ? `Hello Raksha Computers, I am interested in ${p.name} (MRP: ₹${p.mrp.toLocaleString('en-IN')}). Could you please confirm current stock and pickup at your Derebail shop?`
+    : `Hello Raksha Computers, I am interested in ${p.name}. Could you please let me know the current availability in your Derebail shop?`
 
   return (
     <>
@@ -156,18 +158,31 @@ export default function ProductDetail() {
             <h1 className="display mt-4 text-[clamp(1.9rem,4vw,2.8rem)]">{p.name}</h1>
             <p className="mt-4 text-base md:text-lg text-muted leading-relaxed">{p.description}</p>
 
-            {/* Price Policy Notice */}
-            <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-              <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-wider text-muted">
-                <Store size={15} className="text-orange" />
-                <span>Price & Availability</span>
+            {/* Price Box: Exact MRP Rate */}
+            <div className="mt-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-5 backdrop-blur-md">
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted">
+                  <Store size={15} className="text-orange" />
+                  <span>Maximum Retail Price (MRP)</span>
+                </div>
+                <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-400 flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                  In Stock • Derebail Store
+                </span>
               </div>
-              <p className="mt-1 font-display text-lg font-semibold text-paper">
-                Contact for Today's Best Price
-              </p>
-              <p className="mt-1 text-xs text-muted">
-                We provide competitive offline store pricing, seasonal discounts, and free configuration advice on WhatsApp or over a call.
-              </p>
+
+              <div className="mt-3">
+                <div className="flex flex-wrap items-baseline gap-2.5">
+                  <span className="text-xs font-bold text-muted uppercase tracking-wider">MRP</span>
+                  <span className="font-display text-3xl font-extrabold text-paper tracking-tight">
+                    ₹{(p.mrp || p.price || 0).toLocaleString('en-IN')}
+                  </span>
+                  <span className="text-xs text-muted font-normal">(Inclusive of all taxes)</span>
+                </div>
+                <p className="mt-2 text-xs text-muted leading-relaxed">
+                  Genuine product backed by official manufacturer warranty. Available for immediate pickup at Mercia Square, Derebail, Mangaluru, or WhatsApp delivery inquiry.
+                </p>
+              </div>
             </div>
 
             {/* Primary Action: WhatsApp Enquire Button */}

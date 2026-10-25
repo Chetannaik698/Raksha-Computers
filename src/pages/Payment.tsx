@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import QRCode from 'qrcode'
 import PageHead from '../components/PageHead'
+import TextTicker from '../components/TextTicker'
 import { SITE } from '../data/site'
 import { waLink } from '../lib/utils'
 import { useSEO } from '../hooks/useSEO'
@@ -79,6 +80,18 @@ export default function Payment() {
         intro="Scan QR code with Google Pay, PhonePe, Paytm, or BHIM. On mobile, tap Click to Pay to launch your preferred UPI app directly."
       />
 
+      <TextTicker
+        items={[
+          { text: 'Instant UPI Payment Verification', tag: 'Fast' },
+          { text: 'Scan with Google Pay • PhonePe • Paytm • BHIM • Cred' },
+          { text: 'Verified Business: Raksha Computers', tag: '100% Secure' },
+          { text: 'Send WhatsApp Screenshot for Instant Digital Receipt' },
+          { text: 'GST Invoices for All Computer Sales & AMC Services' }
+        ]}
+        speed="normal"
+        direction="left"
+      />
+
       <section className="py-12 md:py-20">
         <div className="wrap grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           {/* Left Column: Interactive QR Code & Mobile Click to Pay */}
@@ -92,10 +105,10 @@ export default function Payment() {
             <div className="text-center">
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-tr from-orange via-yellow to-cyan p-0.5 shadow-lg shadow-orange-500/20">
                 <div className="flex h-full w-full items-center justify-center rounded-2xl bg-navy">
-                  <Wallet size={24} className="text-yellow" />
+                  <Wallet size={24} className="text-yellow animate-subtle-pulse" />
                 </div>
               </div>
-              <h2 className="mt-3.5 font-display text-2xl font-bold text-paper sm:text-3xl">
+              <h2 className="mt-3.5 font-brand text-2xl font-black text-paper sm:text-3xl tracking-tight">
                 {MERCHANT_NAME}
               </h2>
               <div className="mt-1 flex items-center justify-center gap-1.5 text-xs text-muted">

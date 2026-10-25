@@ -1,13 +1,37 @@
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'motion/react'
-import { CheckCircle2, Clock, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Store } from 'lucide-react'
+import {
+  Briefcase,
+  Building2,
+  CheckCircle2,
+  Clock,
+  Compass,
+  GraduationCap,
+  HeartHandshake,
+  Landmark,
+  MapPin,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Store,
+  Target,
+  UserCheck,
+  Users,
+  Wrench
+} from 'lucide-react'
 import PageHead from '../components/PageHead'
+import ClientMarquee from '../components/ClientMarquee'
+import TextTicker from '../components/TextTicker'
 import { MAPS_LINK, SITE } from '../data/site'
 import { waLink } from '../lib/utils'
 import { useSEO } from '../hooks/useSEO'
 
 export default function About() {
-  useSEO('About Raksha Computers', 'About Raksha Computers in Derebail, Mangaluru. Sales and repair services for laptops, desktops, printers, and computer accessories.')
+  useSEO(
+    'About Raksha Computers',
+    'About Raksha Computers in Derebail, Mangaluru. Sales and repair services for laptops, desktops, printers, hardware AMC, and computer accessories.'
+  )
   const reduce = useReducedMotion()
 
   return (
@@ -15,6 +39,20 @@ export default function About() {
       <PageHead
         title="About Raksha Computers"
         intro="Your trusted local neighborhood computer sales, repair, and hardware partner in Derebail, Mangaluru since 2011."
+      />
+
+      {/* CONTINUOUS TICKER */}
+      <TextTicker
+        items={[
+          { text: 'Est. 2011 in Mangaluru', tag: '14+ Years' },
+          { text: 'Owner Mr. Narayan (M.Com, Dip. Hardware & Networking, 20+ Yrs Exp)' },
+          { text: 'AMC for Nationalised & Co-operative Banks', tag: 'Trusted' },
+          { text: '12/7 Dedicated Working Time Support' },
+          { text: 'Doorstep Buying & Selling of Used Systems' },
+          { text: 'CCTV Camera Setup & Live Mobile View' }
+        ]}
+        speed="normal"
+        direction="right"
       />
 
       {/* Main Story & Storefront Section */}
@@ -28,7 +66,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
               <Sparkles size={14} />
-              <span>Serving Mangaluru Since {SITE.establishedYear}</span>
+              <span>Serving Mangaluru Since {SITE.establishedYear} • 12/7 Support</span>
             </div>
 
             <h2 className="display text-[clamp(1.8rem,3.5vw,2.8rem)] text-paper">
@@ -36,11 +74,11 @@ export default function About() {
             </h2>
 
             <p>
-              Raksha Computers started with a clear promise: provide Mangaluru residents and businesses with honest computer advice, dependable repair services, and genuine hardware without the inflated overheads.
+              Raksha Computers started in 2011 with a clear promise: provide Mangaluru residents and businesses with honest computer advice, dependable repair services, and genuine hardware without inflated overheads. Handled and managed by experts who have a strong knowledge of hardware concepts.
             </p>
 
             <p>
-              Whether you need a new laptop for college, a custom-built desktop for gaming or video editing, high-speed SSD upgrades, printer maintenance, or networking supplies, we take the time to understand your exact budget and use-case.
+              Whether you need a new laptop, custom-built desktop for office or gaming, high-speed SSD upgrades, printer maintenance, CCTV installations, or Hardware AMC, we take the time to understand your exact budget and use-case.
             </p>
 
             <address className="space-y-3 not-italic text-paper pt-2">
@@ -50,7 +88,7 @@ export default function About() {
               </p>
               <p className="flex gap-3 text-sm md:text-base">
                 <Clock className="mt-1 shrink-0 text-orange" size={19} />
-                <span>{SITE.hours}</span>
+                <span>Working Time: 12/7 (9:00 AM – 9:00 PM Daily)</span>
               </p>
               <p className="flex gap-3 text-sm md:text-base">
                 <Phone className="shrink-0 text-orange" size={19} />
@@ -92,7 +130,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <span className="inline-block rounded-full bg-orange/90 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  Ground Floor B2 • Mercia Square
+                  Basement-2 • Mercia Square
                 </span>
                 <p className="mt-1.5 text-sm font-semibold text-paper">
                   Official Store Entrance & Signboard at Derebail
@@ -103,13 +141,137 @@ export default function About() {
         </div>
       </section>
 
+      {/* About the Owner Section */}
+      <section className="border-t border-white/10 bg-navy/60 py-16 md:py-20">
+        <div className="wrap">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6 }}
+              className="space-y-5"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-3.5 py-1 text-xs font-semibold text-yellow">
+                <UserCheck size={14} />
+                <span>About the Owner</span>
+              </div>
+
+              <div>
+                <h2 className="font-display text-2xl font-bold text-paper sm:text-3xl">
+                  {SITE.owner.name}
+                </h2>
+                <p className="text-sm font-semibold uppercase tracking-wider text-orange mt-1">
+                  {SITE.owner.title}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5">
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-paper">
+                  <GraduationCap size={15} className="text-orange" />
+                  {SITE.owner.qualifications}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-paper">
+                  <Briefcase size={15} className="text-yellow" />
+                  {SITE.owner.experience}
+                </span>
+              </div>
+
+              <div className="space-y-2 pt-1 text-sm text-muted">
+                <p className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-emerald-400" />
+                  <span><strong>Hardware & Systems Mastery:</strong> 20+ years of deep technical expertise in computer hardware, chip-level diagnostics, and network infrastructure.</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-yellow" />
+                  <span><strong>Ethical & Transparent:</strong> Built on honest guidance, 100% genuine components, fair pricing, and long-term customer relationships.</span>
+                </p>
+                <p className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-orange" />
+                  <span><strong>Enterprise Trusted:</strong> Preferred hardware and AMC partner for nationalised banks, co-operative societies, and thousands of Mangaluru families.</span>
+                </p>
+              </div>
+
+              <div className="grid grid-cols-3 gap-3 pt-2">
+                <div className="rounded-xl border border-white/5 bg-deep p-3.5 text-center sm:text-left">
+                  <span className="font-display text-xl font-bold text-paper">20+</span>
+                  <span className="block text-[11px] text-muted mt-0.5">Years Field Exp.</span>
+                </div>
+                <div className="rounded-xl border border-white/5 bg-deep p-3.5 text-center sm:text-left">
+                  <span className="font-display text-xl font-bold text-yellow">100%</span>
+                  <span className="block text-[11px] text-muted mt-0.5">Genuine Parts</span>
+                </div>
+                <div className="rounded-xl border border-white/5 bg-deep p-3.5 text-center sm:text-left">
+                  <span className="font-display text-xl font-bold text-emerald-400">12/7</span>
+                  <span className="block text-[11px] text-muted mt-0.5">Dedicated Support</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Vision & Mission Mini Cards */}
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="space-y-4"
+            >
+              <div className="rounded-2xl border border-yellow/20 bg-deep/90 p-6 shadow-lg">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-yellow">
+                  <Compass size={16} />
+                  <span>Our Vision</span>
+                </div>
+                <p className="mt-2.5 text-sm md:text-base text-paper leading-relaxed">
+                  "{SITE.vision}"
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-cyan/20 bg-deep/90 p-6 shadow-lg">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan">
+                  <Target size={16} />
+                  <span>Our Mission</span>
+                </div>
+                <p className="mt-2.5 text-sm md:text-base text-paper leading-relaxed">
+                  "{SITE.mission}"
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Valued Clients Section */}
+      <section className="border-t border-white/10 bg-deep py-16 md:py-20">
+        <div className="wrap">
+          <div className="flex flex-wrap items-end justify-between gap-6 max-w-4xl">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-3.5 py-1 text-xs font-semibold text-yellow">
+                <Landmark size={14} className="animate-subtle-pulse text-yellow" />
+                <span>Enterprise & Institutional AMC</span>
+              </div>
+              <h2 className="display mt-3 text-[clamp(1.8rem,3.5vw,2.8rem)]">
+                Our <span className="text-shimmer">Valued Clients</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-sm md:text-base text-muted">
+              We provide Hardware AMC, computer sales, and technical support across Mangaluru to:
+            </p>
+          </div>
+
+          {/* Continuous Moving Client Marquee */}
+          <div className="mt-8">
+            <ClientMarquee bgTone="deep" speed="normal" direction="left" />
+          </div>
+        </div>
+      </section>
+
       {/* Inside the Store / Gallery */}
-      <section className="border-t border-white/10 bg-deep py-16 md:py-24">
+      <section className="border-t border-white/10 bg-navy/40 py-16 md:py-24">
         <div className="wrap">
           <div className="max-w-2xl">
             <h2 className="display text-[clamp(1.8rem,3.5vw,2.8rem)]">Visit our physical store</h2>
             <p className="mt-3 text-muted">
-              Stop by our air-conditioned store in Mercia Square for walk-in consultations, system testing, or hands-on hardware inspection.
+              Stop by our store in Mercia Square for walk-in consultations, system testing, or hands-on hardware inspection.
             </p>
           </div>
 
@@ -169,17 +331,17 @@ export default function About() {
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <Store className="text-yellow" size={28} />
               <h3 className="mt-4 font-display text-lg font-semibold text-paper">Direct Physical Shop</h3>
-              <p className="mt-2 text-sm text-muted">No ghost sellers. Walk into our Derebail shop any day to pick up or test before you buy.</p>
+              <p className="mt-2 text-sm text-muted">Walk into our Derebail shop any day to pick up, get advice, or test before you buy.</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <CheckCircle2 className="text-emerald-400" size={28} />
               <h3 className="mt-4 font-display text-lg font-semibold text-paper">Expert Diagnostics</h3>
-              <p className="mt-2 text-sm text-muted">Transparent diagnosis of laptop motherboards, screen replacements, and cooling systems.</p>
+              <p className="mt-2 text-sm text-muted">Over 20 years of field experience in laptop motherboards, screen replacements, and cooling.</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <MessageCircle className="text-cyan" size={28} />
-              <h3 className="mt-4 font-display text-lg font-semibold text-paper">Instant WhatsApp Support</h3>
-              <p className="mt-2 text-sm text-muted">Message us pictures of your machine or required spare for immediate guidance.</p>
+              <h3 className="mt-4 font-display text-lg font-semibold text-paper">12/7 Support</h3>
+              <p className="mt-2 text-sm text-muted">Call or message us on WhatsApp for quick assistance, AMC queries, and doorstep service.</p>
             </div>
           </div>
         </div>

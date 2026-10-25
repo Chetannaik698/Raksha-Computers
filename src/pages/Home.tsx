@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowRight, ArrowUpRight, CheckCircle2, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Store, Wrench } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Building2, CheckCircle2, Clock, Landmark, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Store, Truck, Wrench } from 'lucide-react'
 import Art from '../components/Art'
 import ProductCard from '../components/ProductCard'
+import ClientMarquee from '../components/ClientMarquee'
+import TextTicker from '../components/TextTicker'
 import { listCategories, listProducts, listServices } from '../lib/api'
 import { MAPS_EMBED, MAPS_LINK, SITE } from '../data/site'
 import { waLink } from '../lib/utils'
@@ -13,7 +15,7 @@ import type { Category, Product, Service } from '../types'
 const line = { hidden: { y: '110%' }, show: (i: number) => ({ y: 0, transition: { duration: 0.8, delay: 0.15 + i * 0.12, ease: [0.2, 0.8, 0.2, 1] as const } }) }
 
 export default function Home() {
-  useSEO('Raksha Computers Derebail | Laptops, Desktops & Hardware Mangaluru', 'Raksha Computers at Mercia Square, Derebail, Mangaluru. Genuine laptops, custom desktop builds, SSDs, printer repair and computer accessories. Enquire on WhatsApp for best price.')
+  useSEO('RAKSHA COMPUTERS | Hardware Sales & Services Mangaluru', 'RAKSHA COMPUTERS at Mercia Square, Derebail, Mangaluru. Hardware sales, chip-level repairs, custom desktop builds, AMC for banks & institutions, CCTV installations, and 12/7 support.')
   const reduce = useReducedMotion()
   const [cats, setCats] = useState<Category[]>([])
   const [featured, setFeatured] = useState<Product[]>([])
@@ -65,8 +67,8 @@ export default function Home() {
 
         <div className="wrap w-full pt-[200px] sm:pt-[220px] md:pt-0">
           <div className="mb-4 mt-7 sm:mt-8 md:mt-0 inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
-            <Sparkles size={14} />
-            <span>Trusted Computer Store in Derebail Since {SITE.establishedYear}</span>
+            <Sparkles size={14} className="animate-subtle-pulse text-yellow" />
+            <span><strong className="font-brand font-bold text-paper">RAKSHA COMPUTERS</strong> • Trusted Partner Since {SITE.establishedYear}</span>
           </div>
           <h1 className="display text-[clamp(2.6rem,8.6vw,8rem)]">
             <span className="block overflow-hidden pb-[0.08em]"><motion.span className="block" variants={line} custom={0} initial={reduce ? 'show' : 'hidden'} animate="show">Power your</motion.span></span>
@@ -82,6 +84,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTINUOUS MOVING TICKER */}
+      <TextTicker
+        items={[
+          { text: '12/7 Dedicated Hardware Support', tag: 'Fast' },
+          { text: 'Hardware AMC for Banks & Co-op Societies' },
+          { text: 'Chip-Level Laptop & Desktop Service', tag: 'Expert' },
+          { text: 'Custom High-Performance Gaming & Office PCs' },
+          { text: 'Buying & Selling of Used Laptops & PCs' },
+          { text: 'CCTV Security & WiFi Surveillance Setup' },
+          { text: 'Basement-2, Mercia Square, Derebail, Mangaluru' }
+        ]}
+        speed="normal"
+        direction="left"
+      />
+
       {/* CATEGORY INDEX */}
       <section className="py-20 md:py-32">
         <div className="wrap grid gap-12 lg:grid-cols-[0.8fr_1.4fr]">
@@ -92,8 +109,8 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-32 lg:self-start"
           >
-            <h2 className="display text-[clamp(1.9rem,4vw,3.2rem)]">Start with what you need</h2>
-            <p className="mt-5 max-w-sm text-muted">Four categories in stock. Each one opens the catalogue, ready to search and enquire.</p>
+            <h2 className="display text-[clamp(1.9rem,4vw,3.2rem)]">Products we deal</h2>
+            <p className="mt-5 max-w-sm text-muted">From branded HP, Lenovo, Dell, Acer systems to assembled rigs, printers, spares, CCTV and Tally software.</p>
           </motion.div>
           <ul>
             {cats.map((c, idx) => (
@@ -148,64 +165,90 @@ export default function Home() {
               className="mt-14 grid gap-10 lg:grid-cols-[1.35fr_1fr]"
             >
               {/* Main spotlight product */}
-              <Link to={`/products/${f0.slug}`} className="group relative grid place-items-center overflow-hidden rounded-3xl bg-navy p-8 md:p-14">
-                <div aria-hidden className="absolute inset-0" style={{ background: 'radial-gradient(circle at 30% 20%, rgba(0,102,255,.35), transparent 55%), radial-gradient(circle at 80% 90%, rgba(255,98,0,.35), transparent 50%), radial-gradient(circle at 60% 60%, rgba(255,184,0,.15), transparent 55%)' }} />
+              <Link to={`/products/${f0.slug}`} className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-navy via-edge to-deep p-6 sm:p-10 transition-all duration-300 hover:border-orange/50 hover:shadow-[0_20px_50px_rgba(255,85,0,0.2)]">
+                <div aria-hidden className="absolute inset-0" style={{ background: 'radial-gradient(circle at 30% 20%, rgba(0,102,255,.25), transparent 55%), radial-gradient(circle at 80% 90%, rgba(255,98,0,.25), transparent 50%), radial-gradient(circle at 60% 60%, rgba(255,184,0,.12), transparent 55%)' }} />
                 
-                {f0.image ? (
-                  <div className="relative flex h-full max-h-[360px] w-full items-center justify-center p-4">
+                {/* Header badges */}
+                <div className="relative z-10 flex items-center justify-between gap-2">
+                  <span className="rounded-full bg-black/70 border border-white/15 px-3 py-1 text-xs font-semibold text-yellow backdrop-blur-md">
+                    {f0.badge || 'Store Favorite'}
+                  </span>
+                  <span className="rounded-full border border-emerald-500/30 bg-emerald-950/80 px-3 py-1 text-xs font-bold text-emerald-300 backdrop-blur-md flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    In Stock • Derebail
+                  </span>
+                </div>
+
+                {/* Main Image Viewport with full padding - Never cut from bottom */}
+                <div className="relative my-4 flex h-64 sm:h-80 w-full items-center justify-center p-2 sm:p-4">
+                  {f0.image ? (
                     <img
                       src={f0.image}
                       alt={f0.name}
-                      className="max-h-full max-w-full rounded-2xl object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.6)] transition-transform duration-700 group-hover:scale-105"
+                      className="max-h-full max-w-full rounded-2xl object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-transform duration-700 group-hover:scale-105"
                     />
-                  </div>
-                ) : (
-                  <Art kind={f0.kind} className="relative w-full max-w-[560px] transition-transform duration-700 group-hover:scale-105" label={f0.name} />
-                )}
+                  ) : (
+                    <Art kind={f0.kind} className="relative w-full max-w-[500px] transition-transform duration-700 group-hover:scale-105" label={f0.name} />
+                  )}
+                </div>
 
-                <span className="absolute top-6 left-6 rounded-full bg-black/60 border border-white/15 px-3 py-1 text-xs font-semibold text-yellow backdrop-blur-md">
-                  {f0.badge || 'Store Favorite'}
-                </span>
-
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                {/* Bottom Info Bar - dedicated area, not overlapping image */}
+                <div className="relative z-10 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
                   <div>
-                    <h3 className="font-display text-xl text-paper group-hover:text-yellow transition-colors md:text-2xl">{f0.name}</h3>
-                    <p className="mt-1 text-sm text-muted line-clamp-1">{f0.summary}</p>
+                    <span className="text-[11px] font-medium uppercase tracking-wider text-muted">{f0.category}</span>
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-paper group-hover:text-yellow transition-colors line-clamp-1">{f0.name}</h3>
+                    <p className="mt-1 text-xs sm:text-sm text-muted line-clamp-1">{f0.summary}</p>
+                    
+                    <div className="mt-2 flex items-baseline gap-2">
+                      <span className="text-xs text-muted font-semibold uppercase">MRP</span>
+                      <span className="font-display text-2xl font-extrabold text-white">
+                        ₹{(f0.mrp || f0.price || 0).toLocaleString('en-IN')}
+                      </span>
+                      <span className="text-[11px] text-muted">(Incl. taxes)</span>
+                    </div>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-green-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-md">
-                    <MessageCircle size={14} /> Enquire
+                  
+                  <span className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-500 px-4 py-2.5 text-xs font-semibold text-white shadow-md shadow-green-950/40 transition-transform group-hover:scale-105 shrink-0">
+                    <MessageCircle size={15} /> WhatsApp Enquire
                   </span>
                 </div>
               </Link>
 
               {/* Side products */}
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:gap-8">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1 lg:gap-6">
                 {f1.map((p, i) => (
-                  <Link key={p.id} to={`/products/${p.slug}`} className={`group block ${i === 1 ? 'lg:ml-10' : ''}`}>
-                    <div className="relative grid place-items-center rounded-2xl bg-navy p-6 border border-white/5 transition-all duration-300 group-hover:border-yellow/30 group-hover:shadow-lg">
+                  <Link key={p.id} to={`/products/${p.slug}`} className={`group flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-navy to-deep p-5 transition-all duration-300 hover:border-orange/40 hover:shadow-lg ${i === 1 ? 'lg:ml-6' : ''}`}>
+                    <div className="relative flex aspect-[4/3] max-h-48 w-full items-center justify-center rounded-xl bg-gradient-to-b from-[#0a1020] to-[#040813] p-3">
                       {p.image ? (
-                        <div className="flex h-44 w-full items-center justify-center">
-                          <img
-                            src={p.image}
-                            alt={p.name}
-                            className="max-h-full max-w-full rounded-lg object-contain transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="max-h-full max-w-full rounded-lg object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
+                        />
                       ) : (
                         <Art kind={p.kind} className="w-4/5 transition-transform duration-500 group-hover:scale-105" label={p.name} />
                       )}
                       {p.badge && (
-                        <span className="absolute top-3 left-3 rounded-full bg-black/60 px-2.5 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
+                        <span className="absolute top-2.5 left-2.5 rounded-full bg-black/70 border border-white/10 px-2.5 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
                           {p.badge}
                         </span>
                       )}
                     </div>
-                    <div className="mt-3 flex items-start justify-between gap-2">
-                      <div>
-                        <h3 className="font-display text-base font-semibold text-paper group-hover:text-orange transition-colors">{p.name}</h3>
-                        <p className="text-xs text-ink/70 line-clamp-1">{p.summary}</p>
+
+                    <div className="mt-3">
+                      <span className="text-[10px] font-medium uppercase tracking-wider text-muted">{p.category}</span>
+                      <h3 className="font-display text-base font-semibold text-paper group-hover:text-yellow transition-colors line-clamp-1">{p.name}</h3>
+                      <p className="mt-0.5 text-xs text-muted line-clamp-1">{p.summary}</p>
+                      
+                      <div className="mt-2.5 flex items-baseline justify-between pt-2 border-t border-white/5">
+                        <div className="flex items-baseline gap-1.5">
+                          <span className="text-[11px] font-semibold text-muted uppercase">MRP</span>
+                          <span className="font-display text-base font-bold text-white">
+                            ₹{(p.mrp || p.price || 0).toLocaleString('en-IN')}
+                          </span>
+                        </div>
+                        <span className="text-xs font-semibold text-emerald-400 group-hover:underline">Enquire →</span>
                       </div>
-                      <span className="shrink-0 text-xs font-semibold text-emerald-400">WhatsApp</span>
                     </div>
                   </Link>
                 ))}
@@ -494,9 +537,10 @@ export default function Home() {
             Why start with a conversation
           </motion.h2>
           <div className="space-y-8 md:space-y-10">
-            {[['A local shop you can walk into', 'Find us at Mercia Square on Bejai–Kavoor Road in Derebail, below Jan Aushadi Kendra.'],
-              ['Ask before you buy', 'Call or WhatsApp to check availability, customized options, and today’s best deal. Direct advice without sales pressure.'],
-              ['Plain answers & honest repair', 'Tell us your budget and what you use your computer for, and get transparent advice that fits your needs.']].map(([t, d], idx) => (
+            {[['Founded by Mr. Narayan (20+ Years Experience)', 'Commerce post-graduate (M.Com) with a Diploma in Hardware & Networking. Bringing in-depth expertise in laptops, hardware, and networking.'],
+              ['A local physical shop you can visit', 'Find us at Mercia Square on Bejai–Kavoor Road in Derebail, below Jan Aushadhi kendra, opp Mukund Kedar Apartments.'],
+              ['12/7 Support & transparent advice', 'Call or WhatsApp to check stock, get customized quotations, and prompt support at any point of time without sales pressure.'],
+              ['Plain answers & honest repair', 'Tell us your budget and workload, and get transparent advice, authentic spares, and fair pricing.']].map(([t, d], idx) => (
               <motion.div
                 key={t}
                 initial={reduce ? false : { opacity: 0, x: 20 }}
@@ -509,6 +553,37 @@ export default function Home() {
                 <p className="mt-1.5 md:mt-2 max-w-lg text-sm md:text-base text-muted">{d}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VALUED CLIENTS & AMC SECTION */}
+      <section className="border-t border-white/10 bg-navy/60 py-20 md:py-28">
+        <div className="wrap">
+          <motion.div
+            initial={reduce ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-wrap items-end justify-between gap-6"
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-yellow/30 bg-yellow/10 px-3.5 py-1 text-xs font-semibold text-yellow">
+                <Landmark size={14} className="animate-subtle-pulse text-yellow" />
+                <span>Enterprise & Institutional Trust</span>
+              </div>
+              <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3.2rem)]">
+                Our <span className="text-shimmer">Valued Clients</span>
+              </h2>
+            </div>
+            <p className="max-w-md text-sm text-muted">
+              Providing Hardware AMC, computer sales, upgrades, and prompt maintenance across coastal Karnataka.
+            </p>
+          </motion.div>
+
+          {/* Continuous Moving Client Marquee */}
+          <div className="mt-8 sm:mt-10">
+            <ClientMarquee bgTone="navy" speed="normal" />
           </div>
         </div>
       </section>
@@ -568,26 +643,71 @@ export default function Home() {
           className="wrap grid gap-10 md:gap-12 lg:grid-cols-2"
         >
           <div>
-            <h2 className="display text-[clamp(1.9rem,4vw,3.2rem)]">Raksha Computers</h2>
-            <p className="mt-4 md:mt-6 max-w-lg text-base md:text-lg text-muted">A dedicated computer shop in Derebail, Mangaluru. Visit us to talk through laptops, desktops, components and accessories.</p>
-            <address className="mt-6 md:mt-8 space-y-3 not-italic text-sm md:text-base text-paper">
-              <p className="flex gap-3"><MapPin className="mt-1 shrink-0 text-orange" size={19} /><span>{SITE.addressLine}, {SITE.addressArea}</span></p>
-              <p className="flex gap-3"><Phone className="shrink-0 text-orange" size={19} /><a href={SITE.phoneHref} className="hover:text-yellow transition-colors">{SITE.phone}</a></p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
+              <Sparkles size={14} />
+              <span>Visit Or Contact Us</span>
+            </div>
+            <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3.2rem)]">{SITE.name}</h2>
+            <p className="mt-4 md:mt-6 max-w-lg text-base md:text-lg text-muted">
+              A dedicated computer shop in Derebail, Mangaluru since 2011. Open 12/7 for walk-ins, hardware consultations, and doorstep support.
+            </p>
+            <address className="mt-6 md:mt-8 space-y-3.5 not-italic text-sm md:text-base text-paper">
+              <p className="flex gap-3">
+                <MapPin className="mt-1 shrink-0 text-orange" size={19} />
+                <span>{SITE.addressLine}, {SITE.addressArea}</span>
+              </p>
+              <p className="flex gap-3">
+                <Clock className="mt-1 shrink-0 text-orange" size={19} />
+                <span>{SITE.hours}</span>
+              </p>
+              <p className="flex gap-3">
+                <Phone className="shrink-0 text-orange" size={19} />
+                <a href={SITE.phoneHref} className="hover:text-yellow transition-colors font-medium">{SITE.phone}</a>
+              </p>
+              <p className="flex gap-3">
+                <Mail className="shrink-0 text-orange" size={19} />
+                <a href={SITE.emailHref} className="hover:text-yellow transition-colors font-medium">{SITE.email}</a>
+              </p>
             </address>
             <div className="mt-6 md:mt-8 flex flex-wrap gap-3">
               <a href={SITE.phoneHref} className="btn btn-red"><Phone size={18} /> Call now</a>
+              <a
+                href={waLink('Hello RAKSHA COMPUTERS, I have an enquiry about your products/services.')}
+                target="_blank"
+                rel="noreferrer"
+                className="btn inline-flex items-center gap-2 !bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white font-semibold"
+              >
+                <MessageCircle size={18} /> WhatsApp
+              </a>
               <a href={MAPS_LINK} target="_blank" rel="noreferrer" className="btn btn-line">Get directions</a>
             </div>
           </div>
           <div className="overflow-hidden rounded-3xl border border-white/10 shadow-lg">
-            <iframe title="Map showing Raksha Computers, Derebail" src={MAPS_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[280px] sm:h-[360px] w-full border-0 grayscale-[.4] md:h-full md:min-h-[360px]" />
+            <iframe title="Map showing RAKSHA COMPUTERS, Derebail" src={MAPS_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="h-[280px] sm:h-[360px] w-full border-0 grayscale-[.4] md:h-full md:min-h-[360px]" />
           </div>
         </motion.div>
       </section>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        '@context': 'https://schema.org', '@type': 'ComputerStore', name: SITE.name, telephone: SITE.phone,
-        address: { '@type': 'PostalAddress', streetAddress: SITE.addressLine, addressLocality: 'Mangaluru', addressRegion: 'Karnataka', postalCode: '575006', addressCountry: 'IN' } }) }} />
+        '@context': 'https://schema.org',
+        '@type': 'ComputerStore',
+        name: SITE.name,
+        telephone: SITE.phone,
+        email: SITE.email,
+        founder: {
+          '@type': 'Person',
+          name: SITE.owner.name,
+          jobTitle: SITE.owner.title
+        },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: SITE.addressLine,
+          addressLocality: 'Mangaluru',
+          addressRegion: 'Karnataka',
+          postalCode: '575008',
+          addressCountry: 'IN'
+        }
+      }) }} />
     </>
   )
 }

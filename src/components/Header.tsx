@@ -16,14 +16,22 @@ const links = [
 
 export function Logo() {
   return (
-    <Link to="/" className="group flex items-center gap-2.5 sm:gap-3" aria-label="Raksha Computers home">
-      <div className="relative">
-        <div aria-hidden className="absolute -inset-1 rounded-full bg-gradient-to-r from-orange/30 to-electric/30 blur-sm opacity-0 transition-opacity group-hover:opacity-100" />
-        <img src="/logo.png" alt="" className="relative h-10 w-12 sm:h-11 sm:w-14 shrink-0 object-contain drop-shadow-[0_2px_8px_rgba(0,102,255,0.3)] transition-transform duration-300 group-hover:scale-105" />
+    <Link to="/" className="group flex items-center gap-2.5 sm:gap-3.5 select-none" aria-label="Raksha Computers home">
+      <div className="relative shrink-0">
+        <div aria-hidden className="absolute -inset-1 rounded-full bg-gradient-to-r from-orange/40 via-yellow/30 to-electric/40 blur-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <img
+          src="/logo.png"
+          alt=""
+          className="relative h-11 w-12 sm:h-12 sm:w-14 shrink-0 object-contain drop-shadow-[0_2px_10px_rgba(0,102,255,0.35)] transition-transform duration-300 group-hover:scale-105"
+        />
       </div>
-      <span className="leading-tight">
-        <span className="block font-display text-[15px] sm:text-[16px] font-bold tracking-tight text-paper transition-colors group-hover:text-yellow">Raksha</span>
-        <span className="block text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-cyan">Computers</span>
+      <span className="flex flex-col justify-center leading-none">
+        <span className="font-logo text-[18px] sm:text-[21px] font-black uppercase tracking-[0.05em] text-paper group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow group-hover:to-orange group-hover:bg-clip-text transition-all duration-300">
+          Raksha
+        </span>
+        <span className="font-logo text-[9.5px] sm:text-[11px] font-extrabold uppercase tracking-[0.28em] text-electric dark:text-cyan group-hover:text-gold transition-colors duration-200 mt-1">
+          Computers
+        </span>
       </span>
     </Link>
   )

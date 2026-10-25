@@ -4,7 +4,7 @@ import { services } from '../data/services'
 import { reviews } from '../data/reviews'
 import type { Category, EnquiryPayload, Product, Review, Service } from '../types'
 
-export type Sort = 'featured' | 'name'
+export type Sort = 'featured' | 'name' | 'price-asc' | 'price-desc'
 export interface ProductQuery { q?: string; category?: string; sort?: Sort; page?: number; pageSize?: number }
 export interface ProductPage { items: Product[]; total: number; pages: number; page: number }
 
@@ -18,8 +18,10 @@ export async function listProducts(query: ProductQuery = {}): Promise<ProductPag
   const term = q.trim().toLowerCase()
   let items = products.filter((p) =>
     (!category || p.category === category) &&
-    (!term || [p.name, p.summary, p.category].join(' ').toLowerCase().includes(term)))
+    (!term || [p.name, p.summary, p.category, p.description, Object.values(p.specs || {}).join(' ')].join(' ').toLowerCase().includes(term)))
   if (sort === 'name') items = [...items].sort((a, b) => a.name.localeCompare(b.name))
+  else if (sort === 'price-asc') items = [...items].sort((a, b) => (a.price ?? 999999) - (b.price ?? 999999))
+  else if (sort === 'price-desc') items = [...items].sort((a, b) => (b.price ?? 0) - (a.price ?? 0))
   else items = [...items].sort((a, b) => Number(!!b.featured) - Number(!!a.featured))
   const pages = Math.max(1, Math.ceil(items.length / pageSize))
   const cur = Math.min(Math.max(1, page), pages)

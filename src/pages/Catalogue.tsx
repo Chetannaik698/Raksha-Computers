@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { AlertCircle, ChevronLeft, ChevronRight, Search, SearchX } from 'lucide-react'
 import PageHead from '../components/PageHead'
 import ProductCard from '../components/ProductCard'
+import TextTicker from '../components/TextTicker'
 import NotFound from './NotFound'
 import { listCategories, listProducts, type ProductPage, type Sort } from '../lib/api'
 import { useSEO } from '../hooks/useSEO'
@@ -14,7 +15,7 @@ export default function Catalogue({ mode }: { mode: 'all' | 'category' | 'search
   const { slug } = useParams()
   const [sp, setSp] = useSearchParams()
   const q = sp.get('q') ?? ''
-  const sort = (sp.get('sort') === 'name' ? 'name' : 'featured') as Sort
+  const sort = (sp.get('sort') ?? 'featured') as Sort
   const page = Number(sp.get('page')) || 1
   const category = mode === 'category' ? slug : sp.get('category') ?? undefined
   const [cats, setCats] = useState<Category[]>([])
@@ -33,7 +34,7 @@ export default function Catalogue({ mode }: { mode: 'all' | 'category' | 'search
   }, [q, category, sort, page])
 
   const title = mode === 'search' ? (q ? `Results for “${q}”` : 'Search products') : current ? current.name : 'Products'
-  useSEO(title, 'Browse laptops, desktops, components, and accessories available at Raksha Computers in Derebail, Mangaluru. Enquire directly on WhatsApp for best price and stock.')
+  useSEO(title, 'Browse branded laptops, custom assembled desktops, used systems with door service, printers, CCTV, and peripherals at RAKSHA COMPUTERS in Mangaluru.')
 
   const update = (next: Record<string, string | null>) => {
     const n = new URLSearchParams(sp)
@@ -45,7 +46,20 @@ export default function Catalogue({ mode }: { mode: 'all' | 'category' | 'search
 
   return (
     <>
-      <PageHead title={title} intro={current?.blurb ?? 'Explore laptops, custom PC builds, components and accessories available at our store in Derebail, Mangaluru. Click WhatsApp Enquire for instant pricing and availability.'} />
+      <PageHead title={title} intro={current?.blurb ?? 'Explore branded HP, Lenovo, Dell, Acer laptops, assembled PCs, used systems with door service, printers, CCTV, and peripherals. Enquire on WhatsApp for instant pricing.'} />
+      <TextTicker
+        items={[
+          { text: 'Branded Laptops (Dell • HP • Lenovo • Acer • Asus)', tag: 'In Stock' },
+          { text: 'Custom Performance Gaming & Workstation Desktops' },
+          { text: 'Doorstep Buying & Selling of Used Systems', tag: 'Door Service' },
+          { text: 'Canon & HP Laser Printers, Multifunction & Toners' },
+          { text: 'CP Plus & Hikvision CCTV Surveillance Kits' },
+          { text: 'Fast NVMe SSD & RAM Upgrades Available Same-Day' },
+          { text: 'Direct WhatsApp Support & Best Mangaluru Pricing' }
+        ]}
+        speed="normal"
+        direction="right"
+      />
       <section className="py-12 md:py-16">
         <div className="wrap">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -62,9 +76,13 @@ export default function Catalogue({ mode }: { mode: 'all' | 'category' | 'search
                 <input id="cq" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Search products" className="field !rounded-full !py-2.5 !pl-10 w-full sm:w-64" />
               </form>
               <label className="flex items-center gap-2 text-sm text-muted">Sort
-                <select value={sort} onChange={(e) => update({ sort: e.target.value === 'name' ? 'name' : null })} className="field !w-auto !rounded-full !py-2.5">
-                  <option value="featured">Featured</option><option value="name">Name A–Z</option>
-                </select></label>
+                <select value={sort} onChange={(e) => update({ sort: e.target.value === 'featured' ? null : e.target.value })} className="field !w-auto !rounded-full !py-2.5">
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">MRP: Low to High</option>
+                  <option value="price-desc">MRP: High to Low</option>
+                  <option value="name">Name A–Z</option>
+                </select>
+              </label>
             </div>
           </div>
 

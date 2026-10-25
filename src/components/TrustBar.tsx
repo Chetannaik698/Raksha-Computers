@@ -1,25 +1,25 @@
-import { Award, Cpu, MessageSquare, Wrench } from 'lucide-react'
+import { Clock, Landmark, ShieldCheck, Truck } from 'lucide-react'
 
 const pillars = [
   {
-    icon: Award,
-    title: '100% Genuine Components',
-    desc: 'Authorized brand inventory with full official manufacturer warranties.'
+    icon: ShieldCheck,
+    title: 'Managed by Hardware Experts',
+    desc: 'Started in 2011 with deep knowledge of hardware concepts, diagnostics, and genuine spares.'
   },
   {
-    icon: Wrench,
-    title: 'In-Shop Testing & Diagnostics',
-    desc: 'Walk into Mercia Square, Derebail for physical inspection & testing.'
+    icon: Clock,
+    title: '12/7 Dedicated Working Time',
+    desc: 'Ready to attend to enterprise or customer urgent business needs at any point of time.'
   },
   {
-    icon: MessageSquare,
-    title: 'Direct Technician Advice',
-    desc: 'Call or WhatsApp real technicians for plain, honest recommendations.'
+    icon: Landmark,
+    title: 'AMC for Banks & Institutions',
+    desc: 'Annual Maintenance Contracts for Nationalised Banks, Co-op Societies, Firms & Home setups.'
   },
   {
-    icon: Cpu,
-    title: 'Custom PC Assembly',
-    desc: 'Clean cable management, thermal compound application & benchmark verification.'
+    icon: Truck,
+    title: 'Doorstep Service Across Mangaluru',
+    desc: 'Door service for buying & selling used laptops/desktops and computer peripheral supply.'
   }
 ]
 
@@ -45,7 +45,7 @@ export default function TrustBar() {
                   {p.desc}
                 </p>
                 <span className="mt-4 text-xs font-semibold text-cyan/90 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Pillar 0{i + 1}
+                  Raksha Pillar 0{i + 1}
                 </span>
               </div>
             )

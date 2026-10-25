@@ -2,35 +2,43 @@ import type { Faq } from '../types'
 
 export const faqs: Faq[] = [
   {
-    q: 'Where is Raksha Computer located in Mangalore?',
-    a: 'We are located on Bejai–Kavoor Road in Derebail, Mangalore (Pincode: 575006). You can easily find us at Sri Gurudath / Landlinks Township (Basement -2, Mercia Square, opposite Kedar Apartments, below Jan Aushadi Kendra).'
+    q: 'Where is RAKSHA COMPUTERS located in Mangaluru?',
+    a: 'We are located at Basement-2, Mercia Square, Below Jan Aushadhi kendra, Opp Mukund Kedar Apartments, Derebail, Mangaluru-575008. You can also get instant directions via Google Maps or WhatsApp us for location sharing.'
   },
   {
-    q: 'What are your shop working hours?',
-    a: 'We are open 7 days a week, Monday through Sunday, from 9:00 AM to 9:00 PM. Feel free to walk in or call us before visiting.'
+    q: 'What are your working hours?',
+    a: 'We have a working time of 12/7 (operating 12 hours daily, 7 days a week from 9:00 AM to 9:00 PM). Our expert technicians attend to customer and corporate needs at any point of time.'
   },
   {
-    q: 'What payment methods do you accept?',
-    a: 'We accept all major payment modes including UPI (Google Pay, PhonePe, Paytm), Net Banking, and Cash for all sales, upgrades, and repair services.'
+    q: 'Do you offer Hardware Annual Maintenance Contracts (AMC)?',
+    a: 'Yes. We provide comprehensive Hardware AMC contracts tailored specifically for Nationalised Banks, Co-operative Banks, Co-operative Societies, Private Limited Companies, Proprietary Firms, and Individual Home Offices and Printers.'
   },
   {
-    q: 'Do you sell both brand-new and refurbished laptops?',
-    a: 'Yes. We supply brand-new laptops with full manufacturer warranties, as well as thoroughly inspected, tested, and certified pre-owned/refurbished laptops and desktops at best reasonable prices.'
+    q: 'Do you provide Doorstep Service for used laptops and computers?',
+    a: 'Yes! We offer convenient Door Service for both buying and selling of used desktops and laptops across Mangaluru, as well as doorstep delivery and installation of computer peripherals, spares, and printer toners.'
   },
   {
-    q: 'Which laptop brands do you repair and service?',
-    a: 'We service all major brands including Dell, HP, Lenovo, Asus, Acer, Apple MacBook, Toshiba, Samsung, and MSI. We handle screen replacements, batteries, motherboards, chip-level diagnostics, and liquid damage recovery.'
+    q: 'Which computer and laptop brands do you deal with?',
+    a: 'We deal with leading branded desktops and laptops including HP, Lenovo, DELL, and ACER. We also assemble customized desktops strictly as per customer requirements at the best prices.'
   },
   {
-    q: 'Do you use genuine parts for repairs?',
-    a: 'Yes, 100%. As highlighted in our customer reviews, we believe in honest repairs, never suggest unnecessary part replacements, and only use authentic components with warranty.'
+    q: 'Do you provide printer repairs, cartridge refilling, and printer sales?',
+    a: 'Yes. We deal in all types of printers from HP, Canon, Epson, and Brother. We offer sales of new laser and ink-tank printers, high-yield toner cartridge supply, professional refilling, and printer troubleshooting.'
   },
   {
-    q: 'Can I get my older computer upgraded for faster speed?',
-    a: 'Absolutely. Upgrading to a fast NVMe or SATA SSD and adding more RAM can make an older, sluggish computer feel 5x faster at a fraction of the cost of a new machine.'
+    q: 'Do you install CCTV cameras and WiFi smart cameras?',
+    a: 'Yes. We handle end-to-end CCTV installations and support, including wireless WiFi cameras, full HD dome/bullet security kits, DVR/NVR surveillance storage, and remote mobile viewing for shops, banks, and homes.'
   },
   {
-    q: 'How can I contact the shop for a quote or enquiry?',
-    a: 'You can call or message us directly on WhatsApp at +91 99006 03818. We provide quick, helpful guidance tailored to your requirements.'
+    q: 'Can you help with Tally Accounting Software?',
+    a: 'Yes. We supply official Tally Accounting Software licenses, handle multi-user setup, GST invoice configuration, data synchronization, and software troubleshooting.'
+  },
+  {
+    q: 'What computer peripherals and spares are available?',
+    a: 'We stock Motherboards, Processors, RAM, Hard Disks, high-speed SSDs, Cabinets, SMPS, Monitors, Pen drives, Printer Toners, External Hard Disks, Keyboards, Mice, Speakers, UPS, and computer tables and chairs.'
+  },
+  {
+    q: 'How can I contact RAKSHA COMPUTERS for an immediate quote?',
+    a: 'You can call or WhatsApp us on +91 99006 03818 or email us directly at rakshacdm@gmail.com. We provide immediate assistance and honest guidance.'
   }
 ]

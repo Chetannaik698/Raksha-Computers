@@ -158,6 +158,67 @@ export default function Art({ kind, view = 0, className, label }: { kind: ArtKin
         <rect x="188" y="220" width="24" height="36" fill="#22324f" />
         <rect x="140" y="254" width="120" height="10" rx="5" fill="#2a3b5c" />
       </g>; break
+    case 'printer':
+      shape = <g>
+        <rect x="50" y="90" width="300" height="130" rx="14" fill={body} stroke="#2a3b5c" strokeWidth="2" />
+        <rect x="90" y="36" width="220" height="60" rx="6" fill="#0a1424" stroke="#2a3b5c" />
+        <rect x="110" y="48" width="180" height="40" rx="4" fill="#f8fafc" opacity="0.9" />
+        <rect x="110" y="160" width="180" height="70" rx="6" fill="#07111F" stroke={a} strokeWidth="1.5" />
+        <rect x="130" y="190" width="140" height="30" rx="3" fill="#ffffff" opacity="0.85" />
+        <circle cx="310" cy="120" r="10" fill={b} />
+        <circle cx="310" cy="148" r="6" fill="#10B981" />
+      </g>; break
+    case 'cctv':
+      shape = <g>
+        {/* Mount base */}
+        <path d="M70 70 L140 120 L130 145 L60 95 Z" fill="#22324f" stroke="#2a3b5c" />
+        <rect x="50" y="60" width="30" height="60" rx="6" fill="#141f33" stroke="#2a3b5c" />
+        {/* Camera cylinder */}
+        <rect x="120" y="90" width="170" height="90" rx="20" fill={body} stroke="#2a3b5c" strokeWidth="2" />
+        <ellipse cx="290" cy="135" rx="24" ry="45" fill="#0a1424" stroke={a} strokeWidth="2" />
+        <circle cx="290" cy="135" r="16" fill="#030813" stroke={b} strokeWidth="2" />
+        <circle cx="290" cy="135" r="6" fill="#ef4444" />
+        {/* IR LEDs ring */}
+        {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+          <circle key={deg} cx={290 + 20 * Math.cos((deg * Math.PI) / 180)} cy={135 + 20 * Math.sin((deg * Math.PI) / 180)} r="2.5" fill="#ef4444" opacity="0.8" />
+        ))}
+        {/* Sunshield visor */}
+        <path d="M110 84 Q220 70 310 92 L290 102 Q210 82 120 94 Z" fill="#2a3b5c" />
+      </g>; break
+    case 'software':
+      shape = <g>
+        <rect x="80" y="40" width="240" height="220" rx="16" fill={body} stroke="#2a3b5c" strokeWidth="2" />
+        <rect x="100" y="60" width="200" height="50" rx="8" fill="#0a1424" stroke={a} />
+        <rect x="100" y="125" width="90" height="45" rx="6" fill="#16243D" stroke="#2a3b5c" />
+        <rect x="210" y="125" width="90" height="45" rx="6" fill="#16243D" stroke="#2a3b5c" />
+        <rect x="100" y="185" width="200" height="45" rx="6" fill="#16243D" stroke={b} strokeOpacity="0.8" />
+        <path d="M120 85 L140 85 M120 75 L160 75" stroke="#FFB800" strokeWidth="3" strokeLinecap="round" />
+        <circle cx="270" cy="85" r="8" fill="#10B981" />
+      </g>; break
+    case 'furniture':
+      shape = <g>
+        {/* Ergonomic Office Chair */}
+        <rect x="160" y="40" width="80" height="110" rx="14" fill={body} stroke="#2a3b5c" strokeWidth="2" />
+        <rect x="145" y="145" width="110" height="24" rx="8" fill="#0a1424" stroke={a} strokeWidth="1.5" />
+        {/* Armrests */}
+        <path d="M140 100 H155 V145" fill="none" stroke="#2a3b5c" strokeWidth="3" strokeLinecap="round" />
+        <path d="M260 100 H245 V145" fill="none" stroke="#2a3b5c" strokeWidth="3" strokeLinecap="round" />
+        {/* Base cylinder & wheels */}
+        <rect x="194" y="169" width="12" height="45" fill="#22324f" />
+        <path d="M140 230 L200 214 L260 230 M200 214 V240" stroke="#2a3b5c" strokeWidth="4" strokeLinecap="round" />
+        <circle cx="138" cy="234" r="6" fill={b} />
+        <circle cx="262" cy="234" r="6" fill={b} />
+        <circle cx="200" cy="244" r="6" fill={b} />
+      </g>; break
+    case 'amc':
+    default:
+      shape = <g>
+        {/* Shield with hardware gear badge */}
+        <path d="M200 35 L290 75 V155 C290 215 200 265 200 265 C200 265 110 215 110 155 V75 Z" fill={body} stroke="#2a3b5c" strokeWidth="3" />
+        <path d="M200 55 L270 88 V150 C270 198 200 240 200 240 C200 240 130 198 130 150 V88 Z" fill="#07111F" stroke={a} strokeWidth="2" />
+        <circle cx="200" cy="140" r="32" fill="#0c1830" stroke={b} strokeWidth="2.5" />
+        <path d="M185 140 L195 150 L218 128" fill="none" stroke="#FFB800" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      </g>; break
   }
   return (
     <svg viewBox="0 0 400 300" role="img" aria-label={label ?? `${kind} illustration`} className={className} style={{ overflow: 'visible' }}>

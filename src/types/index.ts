@@ -1,4 +1,4 @@
-export type ArtKind = 'gpu' | 'laptop' | 'tower' | 'ram' | 'keyboard' | 'mouse' | 'ssd' | 'monitor' | 'accessories'
+export type ArtKind = 'gpu' | 'laptop' | 'tower' | 'ram' | 'keyboard' | 'mouse' | 'ssd' | 'monitor' | 'accessories' | 'printer' | 'cctv' | 'software' | 'furniture' | 'amc'
 export interface Category { slug: string; name: string; kind: ArtKind; blurb: string }
 export interface Product {
   id: string
@@ -12,6 +12,9 @@ export interface Product {
   image?: string
   images?: string[]
   badge?: string
+  mrp?: number
+  price?: number
+  priceLabel?: string
   inStock?: boolean
   featured?: boolean
   demo?: boolean

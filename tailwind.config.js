@@ -35,7 +35,12 @@ export default {
       },
       fontFamily: {
         display: ['Unbounded', 'Arial Black', 'system-ui', 'sans-serif'],
-        body: ['"Instrument Sans"', 'system-ui', 'Segoe UI', 'sans-serif']
+        brand: ['Outfit', 'system-ui', 'Segoe UI', 'sans-serif'],
+        body: ['"Instrument Sans"', 'system-ui', 'Segoe UI', 'sans-serif'],
+        logo: ['Orbitron', 'Oxanium', 'Unbounded', 'system-ui', 'sans-serif'],
+        stylish: ['Orbitron', 'sans-serif'],
+        oxanium: ['Oxanium', 'sans-serif'],
+        syne: ['Syne', 'sans-serif']
       }
     }
   },
