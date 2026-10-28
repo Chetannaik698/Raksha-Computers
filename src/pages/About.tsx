@@ -47,7 +47,7 @@ export default function About() {
           { text: 'Est. 2011 in Mangaluru', tag: '14+ Years' },
           { text: 'Owner Mr. Narayan (M.Com, Dip. Hardware & Networking, 20+ Yrs Exp)' },
           { text: 'AMC for Nationalised & Co-operative Banks', tag: 'Trusted' },
-          { text: '12/7 Dedicated Working Time Support' },
+          { text: 'Mon–Sat: 10:00 AM – 8:30 PM (Sunday Holiday)' },
           { text: 'Doorstep Buying & Selling of Used Systems' },
           { text: 'CCTV Camera Setup & Live Mobile View' }
         ]}
@@ -66,7 +66,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3.5 py-1 text-xs font-semibold text-orange dark:text-yellow">
               <Sparkles size={14} />
-              <span>Serving Mangaluru Since {SITE.establishedYear} • 12/7 Support</span>
+              <span>Serving Mangaluru Since {SITE.establishedYear} • Mon–Sat 10:00 AM – 8:30 PM</span>
             </div>
 
             <h2 className="display text-[clamp(1.8rem,3.5vw,2.8rem)] text-paper">
@@ -88,7 +88,7 @@ export default function About() {
               </p>
               <p className="flex gap-3 text-sm md:text-base">
                 <Clock className="mt-1 shrink-0 text-orange" size={19} />
-                <span>Working Time: 12/7 (9:00 AM – 9:00 PM Daily)</span>
+                <span>Working Time: 10:00 AM – 8:30 PM (Mon – Sat, Sunday Holiday)</span>
               </p>
               <p className="flex gap-3 text-sm md:text-base">
                 <Phone className="shrink-0 text-orange" size={19} />
@@ -202,8 +202,8 @@ export default function About() {
                   <span className="block text-[11px] text-muted mt-0.5">Genuine Parts</span>
                 </div>
                 <div className="rounded-xl border border-white/5 bg-deep p-3.5 text-center sm:text-left">
-                  <span className="font-display text-xl font-bold text-emerald-400">12/7</span>
-                  <span className="block text-[11px] text-muted mt-0.5">Dedicated Support</span>
+                  <span className="font-display text-base font-bold text-emerald-400">10am–8:30pm</span>
+                  <span className="block text-[11px] text-muted mt-0.5">Mon–Sat (Sun Off)</span>
                 </div>
               </div>
             </motion.div>
@@ -340,8 +340,8 @@ export default function About() {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
               <MessageCircle className="text-cyan" size={28} />
-              <h3 className="mt-4 font-display text-lg font-semibold text-paper">12/7 Support</h3>
-              <p className="mt-2 text-sm text-muted">Call or message us on WhatsApp for quick assistance, AMC queries, and doorstep service.</p>
+              <h3 className="mt-4 font-display text-lg font-semibold text-paper">Dedicated Support</h3>
+              <p className="mt-2 text-sm text-muted">Call or message us on WhatsApp (Mon–Sat 10:00 AM – 8:30 PM, Sunday Holiday) for quick assistance, AMC queries, and doorstep service.</p>
             </div>
           </div>
         </div>

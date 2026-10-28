@@ -16,7 +16,7 @@ export default function Footer() {
           </p>
           <div className="inline-flex items-center gap-2 rounded-full border border-orange/30 bg-orange/10 px-3 py-1 text-xs font-semibold text-orange dark:text-yellow">
             <Clock size={13} />
-            <span>Working Time: 12/7 Support</span>
+            <span>Mon – Sat: 10:00 AM – 8:30 PM (Sun Holiday)</span>
           </div>
         </div>
 

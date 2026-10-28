@@ -10,7 +10,7 @@ import { useSEO } from '../hooks/useSEO'
 import type { Service } from '../types'
 
 export default function Services() {
-  useSEO('Services & AMC | RAKSHA COMPUTERS Mangaluru', 'Computer hardware sales, repair, AMC for banks, custom desktops, CCTV installations, and 12/7 support in Derebail, Mangaluru.')
+  useSEO('Services & AMC | RAKSHA COMPUTERS Mangaluru', 'Computer hardware sales, repair, AMC for banks, custom desktops, CCTV installations, and dedicated support in Derebail, Mangaluru.')
   const reduce = useReducedMotion()
   const [s, setS] = useState<Service[] | null>(null)
   useEffect(() => { listServices().then(setS) }, [])
@@ -18,13 +18,13 @@ export default function Services() {
     <>
       <PageHead
         title="Hardware Sales & Services"
-        intro="Started in 2011, handled and managed by hardware experts. From chip-level repairs and custom builds to institutional AMC and CCTV surveillance with 12/7 support."
+        intro="Started in 2011, handled and managed by hardware experts. From chip-level repairs and custom builds to institutional AMC and CCTV surveillance with dedicated support."
       />
 
       {/* CONTINUOUS SERVICE TICKER */}
       <TextTicker
         items={[
-          { text: '12/7 Dedicated Hardware Support', tag: 'Fast' },
+          { text: 'Mon – Sat: 10:00 AM – 8:30 PM (Sun Holiday)', tag: 'Hours' },
           { text: 'Hardware AMC for Nationalised & Co-op Banks', tag: 'Trusted' },
           { text: 'Chip-Level Motherboard & Laptop Repairs' },
           { text: 'Custom Performance Gaming & Office Desktops' },

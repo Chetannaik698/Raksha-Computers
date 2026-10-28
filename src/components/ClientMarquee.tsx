@@ -46,7 +46,7 @@ export const CLIENT_DATA: ClientItem[] = [
     id: 'prop-firms',
     name: 'Proprietary Firms',
     category: 'Business Accounting',
-    badge: '12/7 Urgent IT Support',
+    badge: 'Urgent IT Support',
     icon: Wrench,
     accent: 'yellow'
   },

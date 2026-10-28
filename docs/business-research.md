@@ -7,7 +7,7 @@
 - **Establishment Year**: 2011 (14+ years in continuous business)
 - **Customer Rating**: 4.9 – 5.0 / 5.0 based on 180+ verified local customer reviews
 - **Phone / WhatsApp**: +91 99006 03818
-- **Working Hours**: Monday to Sunday: 09:00 AM – 09:00 PM (Open all 7 days)
+- **Working Hours**: Monday to Saturday: 10:00 AM – 08:30 PM (Sunday Holiday)
 - **Payment Modes**: UPI (Google Pay, PhonePe, Paytm), Net Banking, Cash
 
 ## Address & Geolocation

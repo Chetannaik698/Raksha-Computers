@@ -8,8 +8,8 @@ const pillars = [
   },
   {
     icon: Clock,
-    title: '12/7 Dedicated Working Time',
-    desc: 'Ready to attend to enterprise or customer urgent business needs at any point of time.'
+    title: '10:00 AM – 8:30 PM (Mon–Sat)',
+    desc: 'Ready to attend to walk-ins, urgent hardware repairs, and enterprise AMC visits (Sunday Holiday).'
   },
   {
     icon: Landmark,

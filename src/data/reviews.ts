@@ -14,8 +14,8 @@ export const CUSTOMER_HIGHLIGHTS = [
     desc: 'Quality laptops, custom desktop builds, and repairs at fair, budget-friendly rates.'
   },
   {
-    title: 'Open All 7 Days',
-    desc: 'Monday to Sunday, 9:00 AM – 9:00 PM with quick turnaround and doorstep assistance.'
+    title: 'Mon – Sat Working Hours',
+    desc: 'Monday to Saturday, 10:00 AM – 8:30 PM (Sunday Holiday) with prompt turnaround and doorstep assistance.'
   }
 ]
 

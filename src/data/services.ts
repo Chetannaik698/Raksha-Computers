@@ -157,12 +157,12 @@ export const services: Service[] = [
   },
   {
     slug: 'online-offline-support',
-    name: '12/7 Online & Offline Doorstep Support',
+    name: 'Online & Doorstep Technical Support',
     confirmed: true,
-    short: 'Dedicated 12/7 working hours with remote quick-fix and doorstep technician visits.',
-    description: 'We believe in serving our customers whenever they need us. With 12/7 working time, we attend to urgent issues through remote assistance tools (AnyDesk, TeamViewer) or dispatch technicians directly to your home or office for on-site resolution.',
+    short: 'Dedicated Monday to Saturday working hours (10:00 AM – 8:30 PM) with remote quick-fix and doorstep technician visits.',
+    description: 'We believe in serving our customers whenever they need reliable IT assistance. Operating Monday to Saturday from 10:00 AM to 8:30 PM (Sunday Holiday), we attend to urgent issues through remote assistance tools (AnyDesk, TeamViewer) or dispatch technicians directly to your home or office for on-site resolution.',
     includes: [
-      '12/7 working hours — attend to customer needs at any point of time',
+      'Monday to Saturday: 10:00 AM – 8:30 PM (Sunday Holiday)',
       'Instant remote online desktop diagnosis and troubleshooting',
       'Doorstep visits across Mangaluru for hardware checks and pickup',
       'Emergency support for retail shops, banks, and corporate offices',

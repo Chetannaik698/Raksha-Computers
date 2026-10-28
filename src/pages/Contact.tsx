@@ -8,18 +8,18 @@ import { waLink } from '../lib/utils'
 import { useSEO } from '../hooks/useSEO'
 
 export default function Contact() {
-  useSEO('Contact RAKSHA COMPUTERS', 'Call, WhatsApp, email or visit RAKSHA COMPUTERS at Mercia Square, Derebail, Mangaluru. 12/7 support for hardware sales and repairs.')
+  useSEO('Contact RAKSHA COMPUTERS', 'Call, WhatsApp, email or visit RAKSHA COMPUTERS at Mercia Square, Derebail, Mangaluru. Mon–Sat 10:00 AM – 8:30 PM support for hardware sales and repairs.')
   const reduce = useReducedMotion()
 
   return (
     <>
       <PageHead
         title="Contact RAKSHA COMPUTERS"
-        intro="Call, WhatsApp, email, or visit our shop. We have a working time of 12/7 and attend to customer needs at any point of time."
+        intro="Call, WhatsApp, email, or visit our shop. We are open Monday to Saturday from 10:00 AM to 8:30 PM (Sunday Holiday)."
       />
       <TextTicker
         items={[
-          { text: '12/7 Working Time (9:00 AM – 9:00 PM Daily)', tag: 'Always Open' },
+          { text: 'Working Hours: 10:00 AM – 8:30 PM (Mon – Sat, Sunday Holiday)', tag: 'Open Hours' },
           { text: 'Direct Call & WhatsApp: +91 99006 03818' },
           { text: 'Basement-2, Mercia Square, Derebail, Mangaluru' },
           { text: 'Official Email: rakshacdm@gmail.com' },
@@ -70,7 +70,7 @@ export default function Contact() {
               <div className="flex gap-3">
                 <Clock className="mt-1 shrink-0 text-orange" size={20} />
                 <div>
-                  <span className="block font-semibold text-paper">Working Time: 12/7</span>
+                  <span className="block font-semibold text-paper">Working Hours</span>
                   <span className="text-sm text-muted">{SITE.hours}</span>
                 </div>
               </div>

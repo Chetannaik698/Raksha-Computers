@@ -15,7 +15,7 @@ import type { Category, Product, Service } from '../types'
 const line = { hidden: { y: '110%' }, show: (i: number) => ({ y: 0, transition: { duration: 0.8, delay: 0.15 + i * 0.12, ease: [0.2, 0.8, 0.2, 1] as const } }) }
 
 export default function Home() {
-  useSEO('RAKSHA COMPUTERS | Hardware Sales & Services Mangaluru', 'RAKSHA COMPUTERS at Mercia Square, Derebail, Mangaluru. Hardware sales, chip-level repairs, custom desktop builds, AMC for banks & institutions, CCTV installations, and 12/7 support.')
+  useSEO('RAKSHA COMPUTERS | Hardware Sales & Services Mangaluru', 'RAKSHA COMPUTERS at Mercia Square, Derebail, Mangaluru. Hardware sales, chip-level repairs, custom desktop builds, AMC for banks & institutions, CCTV installations, and dedicated support.')
   const reduce = useReducedMotion()
   const [cats, setCats] = useState<Category[]>([])
   const [featured, setFeatured] = useState<Product[]>([])
@@ -87,7 +87,7 @@ export default function Home() {
       {/* CONTINUOUS MOVING TICKER */}
       <TextTicker
         items={[
-          { text: '12/7 Dedicated Hardware Support', tag: 'Fast' },
+          { text: 'Mon – Sat: 10:00 AM – 8:30 PM (Sunday Holiday)', tag: 'Hours' },
           { text: 'Hardware AMC for Banks & Co-op Societies' },
           { text: 'Chip-Level Laptop & Desktop Service', tag: 'Expert' },
           { text: 'Custom High-Performance Gaming & Office PCs' },
@@ -539,7 +539,7 @@ export default function Home() {
           <div className="space-y-8 md:space-y-10">
             {[['Founded by Mr. Narayan (20+ Years Experience)', 'Commerce post-graduate (M.Com) with a Diploma in Hardware & Networking. Bringing in-depth expertise in laptops, hardware, and networking.'],
               ['A local physical shop you can visit', 'Find us at Mercia Square on Bejai–Kavoor Road in Derebail, below Jan Aushadhi kendra, opp Mukund Kedar Apartments.'],
-              ['12/7 Support & transparent advice', 'Call or WhatsApp to check stock, get customized quotations, and prompt support at any point of time without sales pressure.'],
+              ['Dedicated Support & transparent advice', 'Call or WhatsApp to check stock, get customized quotations, and prompt support without sales pressure.'],
               ['Plain answers & honest repair', 'Tell us your budget and workload, and get transparent advice, authentic spares, and fair pricing.']].map(([t, d], idx) => (
               <motion.div
                 key={t}
@@ -649,7 +649,7 @@ export default function Home() {
             </div>
             <h2 className="display mt-3 text-[clamp(1.9rem,4vw,3.2rem)]">{SITE.name}</h2>
             <p className="mt-4 md:mt-6 max-w-lg text-base md:text-lg text-muted">
-              A dedicated computer shop in Derebail, Mangaluru since 2011. Open 12/7 for walk-ins, hardware consultations, and doorstep support.
+              A dedicated computer shop in Derebail, Mangaluru since 2011. Open Monday to Saturday: 10:00 AM – 8:30 PM (Sunday Holiday) for walk-ins, hardware consultations, and doorstep support.
             </p>
             <address className="mt-6 md:mt-8 space-y-3.5 not-italic text-sm md:text-base text-paper">
               <p className="flex gap-3">
@@ -706,7 +706,15 @@ export default function Home() {
           addressRegion: 'Karnataka',
           postalCode: '575008',
           addressCountry: 'IN'
-        }
+        },
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '10:00',
+            closes: '20:30'
+          }
+        ]
       }) }} />
     </>
   )

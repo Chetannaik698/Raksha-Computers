@@ -535,7 +535,7 @@ const previousProducts = [
       'Edition': 'Tally Prime Silver (Single User) / Gold (Multi User)',
       'Modules': 'GST Invoicing, Inventory, Banking, Payroll & Reports',
       'Service': 'Installation, data synchronization & TSS renewal',
-      'Support': '12/7 remote & doorstep software troubleshooting'
+      'Support': 'Remote & doorstep software troubleshooting'
     }
   },
   {

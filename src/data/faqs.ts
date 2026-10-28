@@ -7,7 +7,7 @@ export const faqs: Faq[] = [
   },
   {
     q: 'What are your working hours?',
-    a: 'We have a working time of 12/7 (operating 12 hours daily, 7 days a week from 9:00 AM to 9:00 PM). Our expert technicians attend to customer and corporate needs at any point of time.'
+    a: 'We are open Monday to Saturday from 10:00 AM to 8:30 PM. Sunday is a holiday. Our expert technicians attend to customer repairs, system purchases, and corporate AMC needs during these hours.'
   },
   {
     q: 'Do you offer Hardware Annual Maintenance Contracts (AMC)?',
